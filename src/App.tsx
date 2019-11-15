@@ -1,23 +1,23 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { Router } from 'react-router-dom';
 
-import { Provider } from "react-redux";
-import store from "./store";
+import './config/ReactotronConfig';
 
-import Routes from "./routes";
+import history from './services/history';
+import Routes from './routes';
 
-import c from "./components";
+import { Provider } from 'react-redux';
+import store from './store';
 
-import "./App.css";
+import GlobalStyle from './styles/global';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <c.Layout>
-          <Routes />
-        </c.Layout>
-      </BrowserRouter>
+      <GlobalStyle />
+      <Router history={history}>
+        <Routes />
+      </Router>
     </Provider>
   );
 };
