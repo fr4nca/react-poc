@@ -4,7 +4,7 @@ import Route from './Route';
 
 import * as p from 'pages';
 
-const Routes = () => {
+const Routes: React.FC = (): any => {
   return (
     <Switch>
       <Route path="/" exact component={p.Auth.SignIn} />

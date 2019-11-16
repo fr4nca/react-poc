@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Wrapper } from './styles';
 
-const AuthLayout = ({ children }: any) => {
+const AuthLayout: React.FC = ({ children }: any) => {
   return <Wrapper>{children}</Wrapper>;
 };
 

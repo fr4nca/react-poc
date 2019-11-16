@@ -6,7 +6,7 @@ import { Content } from '../styles';
 import { Link } from 'react-router-dom';
 import { Button } from 'styles/global';
 
-const SignUp = () => {
+const SignUp: React.FC = () => {
   const dispatch = useDispatch();
   const loading: any = useSelector(({ auth }: any) => auth.loading);
 

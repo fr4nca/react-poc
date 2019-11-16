@@ -4,7 +4,7 @@ import { Content } from './styles';
 import { Button } from 'styles/global';
 import { signOut } from 'store/modules/auth/actions';
 
-const Dashboard = () => {
+const Dashboard: React.FC = (): any => {
   const dispatch = useDispatch();
   const user = useSelector(({ user }: any) => user.user);
 
