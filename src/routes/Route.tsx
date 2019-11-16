@@ -10,8 +10,6 @@ const RouteWrapper = ({ component: Component, isPrivate, ...rest }: any) => {
     auth: { isAuthenticated },
   }: any = store.getState();
 
-  console.log(isAuthenticated);
-
   if (!isAuthenticated && isPrivate) {
     return <Redirect to="/" />;
   }
