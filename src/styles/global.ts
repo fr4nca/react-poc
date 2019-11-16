@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import { darken } from 'polished';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -40,4 +41,21 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+`;
+
+export const Button = styled.button`
+  margin: 5px 0 0;
+  height: 44px;
+  background: #fff;
+  font-weight: bold;
+  color: #551792;
+  border: 0;
+  width: 315px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.2s;
+
+  &:hover {
+    background: ${darken(0.1, '#fff')};
+  }
 `;

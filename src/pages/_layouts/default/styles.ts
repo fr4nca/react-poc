@@ -2,5 +2,8 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background-color: #333;
+  background-color: #551792;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
