@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import Route from './Route';
 
-import p from '../pages';
+import * as p from '../pages';
 
 const Routes = () => {
   return (

@@ -1,24 +1,44 @@
 import { all, takeLatest, put, call } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
 import history from '../../../services/history';
 
-import { signInSuccess } from './actions';
+import { signInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }: any) {
-  const { email, password } = payload;
+  try {
+    const { email, password } = payload;
 
-  const response = yield call(api.post, '/auth/login/', {
-    email,
-    password,
-    company: 'ab72a5fb-4c1d-41fa-ad26-564308f2104e',
-  });
+    const response = yield call(api.post, '/auth/login/', {
+      email,
+      password,
+      company: 'ab72a5fb-4c1d-41fa-ad26-564308f2104e',
+    });
 
-  const { token, user } = response.data;
+    const { token, user } = response.data;
 
-  yield put(signInSuccess(token, user));
+    api.defaults.headers['Authorization'] = `jwt ${token}`;
 
-  history.push('/dashboard');
+    yield put(signInSuccess(token, user));
+
+    history.push('/dashboard');
+  } catch (error) {
+    toast.error('Falha na autenticação, verifique seus dados.');
+    yield put(signFailure());
+  }
 }
 
-export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+export function setToken({ payload }: any) {
+  if (!payload) return;
+  const { token } = payload.auth;
+
+  if (token) {
+    api.defaults.headers['Authorization'] = `jwt ${token}`;
+  }
+}
+
+export default all([
+  takeLatest('persist/REHYDRATE', setToken),
+  takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+]);
