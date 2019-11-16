@@ -13,7 +13,7 @@ import { store, persistor } from 'store';
 
 import GlobalStyle from 'styles/global';
 
-const App: React.FC = () => {
+const App: React.FC = (): React.ReactElement => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
