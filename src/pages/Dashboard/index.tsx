@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Content } from './styles';
-import { Button } from '../../styles/global';
-import { signOut } from '../../store/modules/auth/actions';
+import { Button } from 'styles/global';
+import { signOut } from 'store/modules/auth/actions';
 
 const Dashboard = () => {
   const dispatch = useDispatch();

@@ -1,4 +1,5 @@
 import Dashboard from './Dashboard';
-import Auth from './Auth';
+import * as Auth from './Auth';
+import * as Layouts from './_layouts';
 
-export { Auth, Dashboard };
+export { Auth, Dashboard, Layouts };

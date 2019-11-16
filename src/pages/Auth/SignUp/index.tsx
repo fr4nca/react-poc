@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { signInRequest } from '../../../store/modules/auth/actions';
+import { signInRequest } from 'store/modules/auth/actions';
 import { Content } from '../styles';
 import { Link } from 'react-router-dom';
-import { Button } from '../../../styles/global';
+import { Button } from 'styles/global';
 
 const SignUp = () => {
   const dispatch = useDispatch();

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import l from '../pages/_layouts';
+import { Layouts } from 'pages';
 
-import { store } from '../store';
+import { store } from 'store';
 
 const RouteWrapper = ({ component: Component, isPrivate, ...rest }: any) => {
   const {
@@ -18,7 +18,7 @@ const RouteWrapper = ({ component: Component, isPrivate, ...rest }: any) => {
     return <Redirect to="/dashboard" />;
   }
 
-  const Layout = isAuthenticated ? l.DefaultLayout : l.AuthLayout;
+  const Layout = isAuthenticated ? Layouts.DefaultLayout : Layouts.AuthLayout;
 
   return (
     <Route
