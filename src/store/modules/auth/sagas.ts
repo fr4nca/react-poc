@@ -18,7 +18,7 @@ export function* signIn({ payload }: any) {
 
     const { token, user } = response.data;
 
-    api.defaults.headers['Authorization'] = `jwt ${token}`;
+    api.defaults.headers.Authorization = `jwt ${token}`;
 
     yield put(signInSuccess(token, user));
 
@@ -34,7 +34,7 @@ export function setToken({ payload }: any) {
   const { token } = payload.auth;
 
   if (token) {
-    api.defaults.headers['Authorization'] = `jwt ${token}`;
+    api.defaults.headers.Authorization = `jwt ${token}`;
   }
 }
 
